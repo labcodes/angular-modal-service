@@ -61,7 +61,6 @@ module.factory('ModalService', ['$animate', '$document', '$compile', '$controlle
 
           //  Create a new scope for the modal.
           var modalScope = (options.scope || $rootScope).$new();
-          var rootScopeOnClose = $rootScope.$on('$locationChangeSuccess', cleanUpClose);
 
           //  Create the inputs object to the controller - this will include
           //  the scope, as well as all inputs provided.
@@ -146,9 +145,6 @@ module.factory('ModalService', ['$animate', '$document', '$compile', '$controlle
                       modalElement = null;
                       modalScope = null;
                     });
-
-            // remove event watcher
-            rootScopeOnClose && rootScopeOnClose();
           }
 
         })
